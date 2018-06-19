@@ -15,12 +15,11 @@ class Scanner:
                 if fn.is_file():
                     yield fn.name
 
-    def createSymLinks(self, path, fn):
-        os.symlink(fn, CACHE_DIR)
-
-    def removeSymLink(self):
+    def createSymLinks(self, src, dst): 
+        os.symlink(src, dst) 
+        
+    def removeSymLink(self, src, dst):
+        pass 
+        
+    def updateSymLink(self): 
         pass
-
-    def updateSymLink(self):
-        pass
-
