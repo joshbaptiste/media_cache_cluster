@@ -22,7 +22,15 @@ def parseConfig(configFile):
     return options
 
 def checkDiskUsage(path):
-    pass
+    try:
+        du = psutil.disk_usage(path)
+        return du
+    except OSError:
+        log.error("Unable to check " + path)
+        
+    
+    
+    
     
 
 def scanLocalDir():
