@@ -26,18 +26,16 @@ def checkDiskUsage(path):
         du = psutil.disk_usage(path)
         return du
     except OSError:
-        log.error("Unable to check " + path)
+        log.error("Unable to check disk usage of: " + path)
         
-    
-    
-    
-    
 
-def scanLocalDir():
+def scanLocalDir(config):
     """
         Scans Local directory which contain symlinks
     """
-scandir = scanner.scanDirectory(config.LOCAL_DIR)
+    
+    log.info("Scanning directory ")
+    scandir = scanner.scanDirectory(config.LOCAL_DIR)
     
 
 
