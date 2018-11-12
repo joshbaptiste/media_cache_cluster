@@ -1,3 +1,4 @@
+import os
 import configparser
 import psutil
 import scanner
@@ -29,13 +30,14 @@ def checkDiskUsage(path):
         log.error("Unable to check disk usage of: " + path)
         
 
-def scanLocalDir(config):
+def checkSymLinks(config):
     """
         Scans Local directory which contain symlinks
     """
     
-    log.info("Scanning directory ")
-    scandir = scanner.scanDirectory(config.LOCAL_DIR)
-    
-
+    log.info("Scanning directory {} for symlinks")
+    scandir = scanner.Scanner()
+    for file in scandir.scanDirectory(config.LOCAL_DIR):
+        stats = os.path.stat(file, follow_symlink=False): 
+        
 
